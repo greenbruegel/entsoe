@@ -1,0 +1,14 @@
+2025-06-20 11:58:03,830 - INFO - Start processing AT
+2025-06-20 11:58:03,904 - INFO - AT: 202504010000 \u2192 202505010000
+2025-06-20 12:00:41,993 - INFO - AT: Inserted 5782 records
+2025-06-20 12:00:41,993 - INFO - AT: 202505010000 \u2192 202506010000
+2025-06-20 12:04:45,388 - INFO - AT: Inserted 5967 records
+2025-06-20 12:04:45,389 - INFO - AT: 202506010000 \u2192 202506200958
+2025-06-20 12:04:45,728 - WARNING - [GEN] HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<Acknowledgement_MarketDocument
+	xmlns="urn:iec62325.351:tc57wg16:451-1:acknowledgementdocument:7:0">
+	<mRID>ce435a66-921f-4</mRID>
+	<createdDateTime>2025-06-20T10:04:42Z</createdDateTime>
+
+	<sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</se
+2025-06-20 12:05:51,538 - INFO - AT: Inserted 1594 records

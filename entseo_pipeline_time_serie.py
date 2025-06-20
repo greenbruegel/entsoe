@@ -1,32 +1,22 @@
-import os
+from pymongo import MongoClient
+from datetime import datetime, timedelta, UTC
+from collections import defaultdict
 import requests
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta, UTC
-from pymongo import MongoClient, UpdateOne
-from dotenv import load_dotenv
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import logging
 import time
-from collections import defaultdict
+import os
+from dotenv import load_dotenv
 
 # === Setup ===
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 MONGO_URI = "mongodb://localhost:27017"
 DB_NAME = "entsoe_db"
-COLLECTION_NAME = "entsoe_test_ts"
+COLLECTION_NAME = "entsoe_f"
 
-# === Logging setup ===
-os.makedirs("logs", exist_ok=True)
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-log_file = f"logs/entsoe_log_{timestamp}.log"
-logging.basicConfig(
-    filename=log_file,
-    filemode="w",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
-
-# === Namespaces ===
 NS_GEN = {'ns': 'urn:iec62325.351:tc57wg16:451-6:generationloaddocument:3:0'}
 NS_PRICE = {'ns': 'urn:iec62325.351:tc57wg16:451-3:publicationdocument:7:3'}
 
@@ -37,7 +27,16 @@ class EntsoePipeline:
         self.client = MongoClient(mongo_uri)
         self.collection = self.client[db_name][collection_name]
 
+    def get_retry_session(self):
+        session = requests.Session()
+        retries = Retry(total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["GET"])
+        adapter = HTTPAdapter(max_retries=retries)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)
+        return session
+
     def fetch_generation(self, eic, start, end):
+        session = self.get_retry_session()
         params = {
             "securityToken": self.api_key,
             "documentType": "A75",
@@ -47,10 +46,13 @@ class EntsoePipeline:
             "periodEnd": end,
             "psrType": "B16"
         }
-        r = requests.get("https://web-api.tp.entsoe.eu/api", params=params)
-        if r.status_code != 200:
-            logging.warning(f"[GEN] HTTP {r.status_code}: {r.text[:300]}")
+        try:
+            r = session.get("https://web-api.tp.entsoe.eu/api", params=params, timeout=30)
+            r.raise_for_status()
+        except Exception as e:
+            logging.warning(f"[GEN] Request error for {eic}: {e}")
             return []
+
         try:
             root = ET.fromstring(r.content)
         except ET.ParseError as e:
@@ -69,10 +71,11 @@ class EntsoePipeline:
                 pos = int(point.find("ns:position", NS_GEN).text)
                 qty = float(point.find("ns:quantity", NS_GEN).text)
                 ts = (start_time + timedelta(minutes=(pos - 1) * interval)).isoformat() + "Z"
-                results.append((ts, qty))
+                results.append((ts, qty, resolution))
         return results
 
     def fetch_prices(self, eic, start, end):
+        session = self.get_retry_session()
         params = {
             "securityToken": self.api_key,
             "documentType": "A44",
@@ -81,10 +84,13 @@ class EntsoePipeline:
             "periodStart": start,
             "periodEnd": end
         }
-        r = requests.get("https://web-api.tp.entsoe.eu/api", params=params)
-        if r.status_code != 200:
-            logging.warning(f"[PRICE] HTTP {r.status_code}: {r.text[:300]}")
+        try:
+            r = session.get("https://web-api.tp.entsoe.eu/api", params=params, timeout=30)
+            r.raise_for_status()
+        except Exception as e:
+            logging.warning(f"[PRICE] Request error for {eic}: {e}")
             return {"A44_A01": [], "A44_A07": []}
+
         try:
             root = ET.fromstring(r.content)
         except ET.ParseError as e:
@@ -97,15 +103,11 @@ class EntsoePipeline:
             if ctype is None:
                 continue
             label = f"A44_{ctype.text}"
-            if label not in results:
-                results[label] = []
 
             period = ts.find("ns:Period", NS_PRICE)
             if period is None:
                 continue
-            start_time = datetime.fromisoformat(
-                period.find("ns:timeInterval/ns:start", NS_PRICE).text.replace("Z", "")
-            )
+            start_time = datetime.fromisoformat(period.find("ns:timeInterval/ns:start", NS_PRICE).text.replace("Z", ""))
             resolution = period.find("ns:resolution", NS_PRICE).text
             interval = {"PT15M": 15, "PT60M": 60}.get(resolution, 60)
 
@@ -114,9 +116,23 @@ class EntsoePipeline:
                 val = point.find("ns:price.amount", NS_PRICE)
                 if pos is None or val is None:
                     continue
+                value = float(val.text) / 10
+                if value == 0.0:
+                    continue
                 ts_point = (start_time + timedelta(minutes=(int(pos.text) - 1) * interval)).isoformat() + "Z"
-                results[label].append((ts_point, float(val.text) / 10))
+                results[label].append((ts_point, value, resolution))
         return results
+
+    def merge_series(self, generation, prices):
+        merged = {"PT15M": defaultdict(dict), "PT60M": defaultdict(dict)}
+        for ts, val, res in generation:
+            merged[res][ts]["timestamp"] = ts
+            merged[res][ts]["A75_A16_B16"] = val
+        for label, entries in prices.items():
+            for ts, val, res in entries:
+                merged[res][ts]["timestamp"] = ts
+                merged[res][ts][label] = val
+        return {res: list(ts_map.values()) for res, ts_map in merged.items() if ts_map}
 
     def run(self, bidding_zones):
         now = datetime.now(UTC)
@@ -139,24 +155,16 @@ class EntsoePipeline:
 
                 gen_data = self.fetch_generation(eic, period_start, period_end)
                 price_data = self.fetch_prices(eic, period_start, period_end)
+                merged = self.merge_series(gen_data, price_data)
 
                 day_doc = {
                     "_id": {"bidding_zone": zone, "date": day_str},
-                    "A75_A16_B16": [],
                     "bidding_zone": zone,
-                    "date": day_str
+                    "date": day_str,
+                    **merged
                 }
 
-                for ts, val in gen_data:
-                    day_doc["A75_A16_B16"].append({"timestamp": ts, "value": val})
-
-                if price_data["A44_A01"]:
-                    # Assumes 1 per day, take latest
-                    day_doc["A44_A01"] = price_data["A44_A01"][-1][1]
-                if price_data["A44_A07"]:
-                    day_doc["A44_A07"] = price_data["A44_A07"][-1][1]
-
-                if "A75_A16_B16" in day_doc and day_doc["A75_A16_B16"] or "A44_A01" in day_doc or "A44_A07" in day_doc:
+                if merged:
                     self.collection.update_one(
                         {"_id": {"bidding_zone": zone, "date": day_str}},
                         {"$set": day_doc},
@@ -169,6 +177,7 @@ class EntsoePipeline:
                     logging.info(f"{zone}: No new data")
 
                 current = next_day
+                time.sleep(1.5)
 
 
 if __name__ == "__main__":
@@ -213,6 +222,8 @@ if __name__ == "__main__":
         "SI": "10YSI-ELES-----O",
         "SK": "10YSK-SEPS-----K"
     }
+    # bidding_zones = {
+    #     "AT": "10YAT-APG------L"}
 
     pipeline.run(bidding_zones)
 

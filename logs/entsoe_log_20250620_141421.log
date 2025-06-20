@@ -1,0 +1,196 @@
+2025-06-20 14:14:21,912 - INFO - Start processing AT
+2025-06-20 14:14:22,011 - INFO - AT: 202504010000 \u2192 202505010000
+2025-06-20 14:14:22,771 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,771 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,772 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,772 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,772 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,773 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,777 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,778 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,779 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,780 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,781 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,781 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,782 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,783 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,783 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,784 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,784 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,785 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,785 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,786 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,786 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,787 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,787 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,788 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,788 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,788 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,789 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,789 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,790 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,790 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,790 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:22,792 - INFO - AT: No new data
+2025-06-20 14:14:22,792 - INFO - AT: 202505010000 \u2192 202506010000
+2025-06-20 14:14:23,554 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,555 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,555 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,556 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,556 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,556 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,557 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,557 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,557 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,558 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,558 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,558 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,562 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,562 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,562 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,562 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,563 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,563 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,563 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,564 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,564 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,565 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,565 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,565 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:23,568 - INFO - AT: No new data
+2025-06-20 14:14:23,568 - INFO - AT: 202506010000 \u2192 202506201214
+2025-06-20 14:14:23,701 - WARNING - [GEN] HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<Acknowledgement_MarketDocument
+	xmlns="urn:iec62325.351:tc57wg16:451-1:acknowledgementdocument:7:0">
+	<mRID>d02b6bb0-49a5-4</mRID>
+	<createdDateTime>2025-06-20T12:14:20Z</createdDateTime>
+
+	<sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</se
+2025-06-20 14:14:24,010 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,010 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,011 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,011 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,012 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,013 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,014 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,015 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,015 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,016 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,018 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,020 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,021 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,021 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,022 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,023 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,023 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,024 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,025 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,025 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,027 - INFO - AT: No new data
+2025-06-20 14:14:24,028 - INFO - Start processing BE
+2025-06-20 14:14:24,048 - INFO - BE: 202504010000 \u2192 202505010000
+2025-06-20 14:14:24,303 - WARNING - [GEN] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,559 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,560 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,561 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:24,562 - INFO - BE: No new data
+2025-06-20 14:14:24,562 - INFO - BE: 202505010000 \u2192 202506010000
+2025-06-20 14:14:24,805 - WARNING - [GEN] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,051 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,052 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,053 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,054 - INFO - BE: No new data
+2025-06-20 14:14:25,054 - INFO - BE: 202506010000 \u2192 202506201214
+2025-06-20 14:14:25,172 - WARNING - [GEN] HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<Acknowledgement_MarketDocument
+	xmlns="urn:iec62325.351:tc57wg16:451-1:acknowledgementdocument:7:0">
+	<mRID>a019b123-2e98-4</mRID>
+	<createdDateTime>2025-06-20T12:14:21Z</createdDateTime>
+
+	<sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</se
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,396 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,397 - WARNING - [PRICE] Skipping non-15min resolution: PT60M
+2025-06-20 14:14:25,398 - INFO - BE: No new data

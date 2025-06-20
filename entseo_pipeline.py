@@ -1,4 +1,3 @@
-
 import os
 import requests
 import xml.etree.ElementTree as ET
@@ -13,7 +12,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 MONGO_URI = "mongodb://localhost:27017"
 DB_NAME = "entsoe_db"
-COLLECTION_NAME = "entsoe_test"
+COLLECTION_NAME = "entsoe_test_bis"
 
 # === Logging setup ===
 os.makedirs("logs", exist_ok=True)
@@ -76,7 +75,10 @@ class EntsoePipeline:
                 continue
             start_time = datetime.fromisoformat(period.find("ns:timeInterval/ns:start", NS_GEN).text)
             resolution = period.find("ns:resolution", NS_GEN).text
-            interval = {"PT15M": 15, "PT60M": 60}.get(resolution, 60)
+            if resolution != "PT15M":
+                logging.warning(f"[GEN] Skipping non-15min resolution: {resolution}")
+                continue
+            interval = 15
             for point in period.findall("ns:Point", NS_GEN):
                 pos = int(point.find("ns:position", NS_GEN).text)
                 qty = float(point.find("ns:quantity", NS_GEN).text)
@@ -119,7 +121,10 @@ class EntsoePipeline:
                 period.find("ns:timeInterval/ns:start", NS_PRICE).text.replace("Z", "")
             )
             resolution = period.find("ns:resolution", NS_PRICE).text
-            interval = {"PT15M": 15, "PT60M": 60}.get(resolution, 60)
+            if resolution != "PT15M":
+                logging.warning(f"[PRICE] Skipping non-15min resolution: {resolution}")
+                continue
+            interval = 15
 
             for point in period.findall("ns:Point", NS_PRICE):
                 pos = point.find("ns:position", NS_PRICE)
@@ -136,7 +141,7 @@ class EntsoePipeline:
         window_size = timedelta(days=32)
 
         for zone, eic in bidding_zones.items():
-            print(f"\\n🔄 Fetching data for {zone}")
+            print(f"\n🔄 Fetching data for {zone}")
             logging.info(f"Start processing {zone}")
             current = start
             existing = self.get_existing_fields_by_timestamp(zone)
@@ -203,5 +208,5 @@ if __name__ == "__main__":
 
     duration = time.time() - start_time
     mins, secs = divmod(duration, 60)
-    print(f"\\n🏁 Pipeline completed in {int(mins)} min {int(secs)} sec")
+    print(f"\n🏑 Pipeline completed in {int(mins)} min {int(secs)} sec")
     print(f"📄 Log saved to: {log_file}")

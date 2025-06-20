@@ -1,3 +1,4 @@
+
 import os
 import requests
 import xml.etree.ElementTree as ET
@@ -9,10 +10,10 @@ import time
 
 # === Setup ===
 load_dotenv()
-API_KEY = os.getenv("API_KEY") or "384f558b-1d39-4630-9db3-a007a5635feb"
+API_KEY = os.getenv("API_KEY")
 MONGO_URI = "mongodb://localhost:27017"
 DB_NAME = "entsoe_db"
-COLLECTION_NAME = "entsoe_prices"
+COLLECTION_NAME = "entsoe_test"
 
 # === Logging setup ===
 os.makedirs("logs", exist_ok=True)
@@ -36,11 +37,17 @@ class EntsoePipeline:
         self.client = MongoClient(mongo_uri)
         self.collection = self.client[db_name][collection_name]
 
-    def get_existing_timestamps(self, bidding_zone):
-        return set(
-            doc["timestamp"]
-            for doc in self.collection.find({"bidding_zone": bidding_zone}, {"timestamp": 1})
+    def get_existing_fields_by_timestamp(self, bidding_zone):
+        cursor = self.collection.find(
+            {"bidding_zone": bidding_zone},
+            {"timestamp": 1, "A75_A16_B16": 1, "A44_A01": 1, "A44_A07": 1}
         )
+        mapping = {}
+        for doc in cursor:
+            ts = doc["timestamp"]
+            keys = {k for k in ["A75_A16_B16", "A44_A01", "A44_A07"] if k in doc}
+            mapping[ts] = keys
+        return mapping
 
     def fetch_generation(self, eic, start, end):
         params = {
@@ -126,13 +133,13 @@ class EntsoePipeline:
     def run(self, bidding_zones):
         now = datetime.now(UTC)
         start = datetime(2025, 4, 1, tzinfo=UTC)
-        window_size = timedelta(days=32)  # covers full months robustly
+        window_size = timedelta(days=32)
 
         for zone, eic in bidding_zones.items():
-            print(f"\n🔄 Fetching data for {zone}")
+            print(f"\\n🔄 Fetching data for {zone}")
             logging.info(f"Start processing {zone}")
             current = start
-            existing_ts = self.get_existing_timestamps(zone)
+            existing = self.get_existing_fields_by_timestamp(zone)
 
             while current < now:
                 period_start = current.strftime("%Y%m%d%H%M")
@@ -147,14 +154,14 @@ class EntsoePipeline:
 
                 merged = {}
                 for ts, val in gen_data:
-                    if ts in existing_ts:
+                    if ts in existing and "A75_A16_B16" in existing[ts]:
                         continue
                     merged.setdefault(ts, {"bidding_zone": zone, "timestamp": ts})
                     merged[ts]["A75_A16_B16"] = val
 
                 for label, series in price_data.items():
                     for ts, val in series:
-                        if ts in existing_ts:
+                        if ts in existing and label in existing[ts]:
                             continue
                         merged.setdefault(ts, {"bidding_zone": zone, "timestamp": ts})
                         merged[ts][label] = val
@@ -188,13 +195,13 @@ if __name__ == "__main__":
     )
 
     bidding_zones = {
-        "AT": "10YAT-APG------L"
-        # Add more zones as needed
+        "AT": "10YAT-APG------L",
+        "BE": "10YBE----------2"
     }
 
     pipeline.run(bidding_zones)
 
     duration = time.time() - start_time
     mins, secs = divmod(duration, 60)
-    print(f"\n🏁 Pipeline completed in {int(mins)} min {int(secs)} sec")
+    print(f"\\n🏁 Pipeline completed in {int(mins)} min {int(secs)} sec")
     print(f"📄 Log saved to: {log_file}")

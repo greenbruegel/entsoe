@@ -1,0 +1,28 @@
+2025-06-20 12:13:54,539 - INFO - Start processing AT
+2025-06-20 12:13:54,568 - INFO - AT: 202504010000 \u2192 202505010000
+2025-06-20 12:14:10,802 - INFO - AT: Inserted 5782 records
+2025-06-20 12:14:10,802 - INFO - AT: 202505010000 \u2192 202506010000
+2025-06-20 12:14:58,587 - INFO - AT: Inserted 5967 records
+2025-06-20 12:14:58,588 - INFO - AT: 202506010000 \u2192 202506201013
+2025-06-20 12:14:58,713 - WARNING - [GEN] HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<Acknowledgement_MarketDocument
+	xmlns="urn:iec62325.351:tc57wg16:451-1:acknowledgementdocument:7:0">
+	<mRID>2c1f981b-8250-4</mRID>
+	<createdDateTime>2025-06-20T10:14:55Z</createdDateTime>
+
+	<sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</se
+2025-06-20 12:15:20,974 - INFO - AT: Inserted 1869 records
+2025-06-20 12:15:20,975 - INFO - Start processing BE
+2025-06-20 12:15:20,984 - INFO - BE: 202504010000 \u2192 202505010000
+2025-06-20 12:15:37,588 - INFO - BE: Inserted 1463 records
+2025-06-20 12:15:37,588 - INFO - BE: 202505010000 \u2192 202506010000
+2025-06-20 12:15:58,409 - INFO - BE: Inserted 1510 records
+2025-06-20 12:15:58,409 - INFO - BE: 202506010000 \u2192 202506201013
+2025-06-20 12:15:58,530 - WARNING - [GEN] HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<Acknowledgement_MarketDocument
+	xmlns="urn:iec62325.351:tc57wg16:451-1:acknowledgementdocument:7:0">
+	<mRID>7d549c79-e633-4</mRID>
+	<createdDateTime>2025-06-20T10:15:55Z</createdDateTime>
+
+	<sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</se
+2025-06-20 12:16:05,194 - INFO - BE: Inserted 479 records
